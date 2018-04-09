@@ -3,21 +3,22 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import * as firebase from 'firebase'
+import {store} from './store'
 import App from './App'
-import router from './router'
-import { store } from './store'
+
+import UploadImage from './components/UploadImage.vue'
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
+Vue.component('app-upload-image', UploadImage)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
   store,
-  components: { App },
+  components: {App},
   template: '<App/>',
-  created () {
+  created() {
     firebase.initializeApp({
     })
   }
