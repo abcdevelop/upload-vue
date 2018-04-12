@@ -18,7 +18,12 @@
             <v-toolbar dark color="primary">
               <v-toolbar-title>Upload dialog</v-toolbar-title>
             </v-toolbar>
-            <img :src="imageUrl" height="150px">
+            <v-card-text>
+              <v-alert type="info" :value="upload">
+                'Upload effectué !'
+              </v-alert>
+              <img :src="imageUrl" height="150px">
+            </v-card-text>
             <v-card-actions>
               <input
                 type="file"
@@ -48,7 +53,8 @@
     data() {
       return {
         imageUrl: '',
-        image: null
+        image: null,
+        upload: false
       }
     },
     computed: {
@@ -84,9 +90,12 @@
           image: this.image
         }
         this.uploadImage(payload).then(() => {
-          alert('Upload effectué')
-          this.imageUrl = ''
-          this.image = null
+          this.upload = true
+          setTimeout(() => {
+            this.upload = false
+            this.imageUrl = ''
+            this.image = null
+          }, 3000)
         })
       }
     }

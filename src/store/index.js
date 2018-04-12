@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import shared from './shared'
+import modules from './modules'
 
 Vue.use(Vuex)
 
-export const store = new Vuex.Store({
-  modules: {shared}
-})
+export const store = new Vuex.Store({modules})

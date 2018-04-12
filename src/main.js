@@ -20,6 +20,7 @@ new Vue({
   template: '<App/>',
   created() {
     firebase.initializeApp({
+
     })
   }
 })
